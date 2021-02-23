@@ -1,6 +1,7 @@
 header {
     display: flex;
     background: rgb(221, 221, 221);
+    /* background: black; */
     justify-content: space-around;
     padding: 10px;
     height: 30px;
@@ -12,12 +13,30 @@ nav {
     margin-left: -40px;
 }
 
+.search {
+    width: 400px;
+}
+
 #searchInput {
-    width: 300px;
+    width: 80%;
     margin-right: -100px;
+}
+
+#searchButton {
+    width: 15%;
+    margin-left: 50px;
 }
 
 nav li {
     margin: 10px;
     text-decoration: none;
+}
+
+nav a {
+    color: rgb(65, 64, 64);
+    text-decoration: none;
+}
+
+img {
+    color: rgb(65, 64, 64);
 }

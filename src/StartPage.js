@@ -1,6 +1,8 @@
+import Questions from './Questions'
+
 function StartPage() {
     return (
-        <h1>Start Page</h1>
+        <Questions />
     )
 }
 
