@@ -1,0 +1,30 @@
+main {
+    display: grid;
+    /* justify-content: space-between; */
+    grid-template-columns: 200px 900px;
+    /* grid-template-rows: 100%; */
+    margin-top: 20px;
+    grid-template-areas: 'sideBar mainField';
+
+
+}
+
+#sideBar {
+    grid-area: sideBar;
+    width: 100%;
+    /* margin: 20px; */
+    /* margin-top: 20px; */
+    background: lightblue;
+    margin: 0 20px;
+    height: max-content;
+    padding: 10px;
+}
+
+#mainField {
+    grid-area: mainField;
+    width: 100%;
+    margin: 0 50px;
+    height: max-content;
+    background: lightblue;
+    padding: 10px;
+}
