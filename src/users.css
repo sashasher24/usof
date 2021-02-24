@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100%; */
+}
+
+.userBlock {
+    display: flex;
+    width: 30%;
+    margin: 10px;
+    border-bottom: 1px solid rgb(94, 94, 94);
+}
+
+.profileImage {
+    height: 70px;
+    width: 70px;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+}
