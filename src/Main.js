@@ -1,7 +1,7 @@
 import StartPage from './StartPage';
 import Users from './Users';
 import Tags from './Tags';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import './main.css'
 

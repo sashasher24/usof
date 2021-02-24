@@ -14,7 +14,7 @@ main {
     width: 100%;
     /* margin: 20px; */
     /* margin-top: 20px; */
-    background: lightblue;
+    background: rgb(0, 43, 58);
     margin: 0 20px;
     height: max-content;
     padding: 10px;
@@ -25,6 +25,6 @@ main {
     width: 100%;
     margin: 0 50px;
     height: max-content;
-    background: lightblue;
+    background: rgb(0, 43, 58);
     padding: 10px;
 }
