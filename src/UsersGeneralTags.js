@@ -1,14 +1,13 @@
 import {  useState,  useEffect } from 'react';
-import TagsDescription from './TagsDescription';
 
-import './tags.css'
+import './usersGeneralTags.css'
 
-function Tags() {
+function UsersGeneralTags(props) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const url = 'https://api.stackexchange.com/2.2/tags?site=stackoverflow&filter=!9_bDDqt9p&key=wud)gxqaQ5vssDmltw6d1A((';
+    const url = `https://api.stackexchange.com/2.2/users/${props.id}/top-tags?site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -16,7 +15,6 @@ function Tags() {
             (result) => {
                 setData(result.items);
                 setIsLoaded(true);
-                
             },
             (error) => {
                 setIsLoaded(true);
@@ -26,24 +24,20 @@ function Tags() {
     }, []);
 
     console.log(data);
-
+    
     if(error) {
         return <div>Error: {error.message}</div>;
     } else if(!isLoaded) {
         return <div>Loading tags ...</div>;
     } else {
         return (
-            <div className='container'>
-                {data.map(item => (
-                    <div className="tagBlock">
-                        <p className="tagName">{item.name}</p>
-                        <TagsDescription name={decodeURIComponent(item.name)} />
-                        <p className="numOfQuestions">{item.count} questions</p>
-                    </div>
+            <>
+                {data.slice(0, 3).map(item => (
+                    <span className="userTag">{item.tag_name}</span>
                 ))}
-            </div>
+            </>
         )
     }
 }
 
-export default Tags;
+export default UsersGeneralTags;

@@ -16,8 +16,6 @@ function Questions() {
             (result) => {
                 setData(result.items);
                 setIsLoaded(true);
-                
-                console.log(result.items);
             },
             (error) => {
                 setIsLoaded(true);
@@ -25,6 +23,8 @@ function Questions() {
             }
         )
     }, []);
+    
+    console.log(data);
 
     const formatDate = (date) => {
         let formattedDate = new Date(date * 1000);

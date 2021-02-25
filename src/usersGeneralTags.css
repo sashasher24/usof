@@ -1,0 +1,15 @@
+.userTag {
+    margin-right: 6px;
+    position: relative;
+}
+
+.userTag:not(:last-child):after {
+    content: ',';
+    position: absolute;
+    right: -2px;
+    top: 0;
+    display: block;
+    height: 2px;
+    width: 2px;
+}
+

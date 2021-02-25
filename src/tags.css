@@ -1,0 +1,23 @@
+.tagBlock {
+    color: white;
+    padding: 5px;
+    border: 1px solid  rgb(94, 94, 94);
+    width: 22%;
+    margin: 5px;
+    font-size: 12px;
+}
+
+.tagName {
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: black;
+    background: lightskyblue;
+}
+
+.numOfQuestions {
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(179, 179, 179);
+}

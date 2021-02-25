@@ -1,13 +1,14 @@
 import {  useState,  useEffect } from 'react';
 
 import './users.css'
+import UsersGeneralTags from './UsersGeneralTags';
 
 function Users() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const url = 'https://api.stackexchange.com/2.2/users?site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((';
+    const url = 'https://api.stackexchange.com/2.2/users?site=stackoverflow&filter=!9_bDDp)d5&key=wud)gxqaQ5vssDmltw6d1A((';
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -15,8 +16,6 @@ function Users() {
             (result) => {
                 setData(result.items);
                 setIsLoaded(true);
-                
-                console.log(result.items);
             },
             (error) => {
                 setIsLoaded(true);
@@ -35,23 +34,7 @@ function Users() {
         } else return `${rep}`;
     }
 
-    const getTags = id => {
-        // console.log('tags');
-        fetch(`https://api.stackexchange.com/2.2/users/${id}/top-tags?site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    console.log(result);
-                    return(
-                        result.items.map(item => (
-                            <span>{item.tag_name}</span>
-                        ))
-                    )
-                }
-            )
-    }
-
-    // console.log(data);
+    console.log(data);
 
     if(error) {
         return <div>Error: {error.message}</div>;
@@ -68,11 +51,11 @@ function Users() {
                             <span className="userLocation">{item.location}</span>
                             <span className="repInfo">
                                 <span className="reputation"> {displayRep(item.reputation)} </span>
-                                <span className="bronze"> b {item.badge_counts.bronze} </span>
+                                {/* <span className="bronze"> b {item.badge_counts.bronze} </span>
                                 <span className="silver"> s {item.badge_counts.silver} </span>
-                                <span className="gold"> g{item.badge_counts.gold} </span>
+                                <span className="gold"> g{item.badge_counts.gold} </span> */}
                             </span>
-                            <span className="tags">{() => getTags(item.user_id)}</span>
+                            <span className="tags"><UsersGeneralTags id={item.user_id} /></span>
 
                         </div>
                     </div>
