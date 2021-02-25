@@ -1,0 +1,12 @@
+.previewImage {
+    height: 70px;
+    width: 70px;
+}
+
+.userInfoPreview {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 12px;
+    padding: 0px 5px 5px 5px;
+}

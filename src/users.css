@@ -4,6 +4,10 @@
     /* width: 100%; */
 }
 
+.user {
+    position: relative;
+}
+
 .userBlock {
     display: flex;
     width: 30%;
@@ -27,4 +31,19 @@
 
 .tags {
     margin: 5px 0 ;
+}
+
+.userPreviewBlock{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: max-content;
+    width: 35%;
+    background: rgb(161, 161, 161);
+}
+
+.user:hover  .userPreviewBlock {
+    display: block;
 }

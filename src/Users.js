@@ -1,4 +1,5 @@
 import {  useState,  useEffect } from 'react';
+import UserPreview from './UserPreview';
 
 import './users.css'
 import UsersGeneralTags from './UsersGeneralTags';
@@ -44,19 +45,32 @@ function Users() {
         return (
             <div className="container">
                 {data.map(item => (
-                    <div key={item.user_id} className="userBlock">
-                        <img src={item.profile_image} className="profileImage"></img>
-                        <div className="userInfo">
-                            <span className="userName">{item.display_name}</span>
-                            <span className="userLocation">{item.location}</span>
-                            <span className="repInfo">
-                                <span className="reputation"> {displayRep(item.reputation)} </span>
-                                {/* <span className="bronze"> b {item.badge_counts.bronze} </span>
-                                <span className="silver"> s {item.badge_counts.silver} </span>
-                                <span className="gold"> g{item.badge_counts.gold} </span> */}
-                            </span>
-                            <span className="tags"><UsersGeneralTags id={item.user_id} /></span>
+                    <div className="user">
+                        <div key={item.user_id} className="userBlock">
+                            <img src={item.profile_image} className="profileImage"></img>
+                            <div className="userInfo">
+                                <span className="userName">{item.display_name}</span>
+                                <span className="userLocation">{item.location}</span>
+                                <span className="repInfo">
+                                    <span className="reputation"> {displayRep(item.reputation)} </span>
+                                    
+                                </span>
+                                <span className="tags"><UsersGeneralTags id={item.user_id} /></span>
 
+                            </div>
+                        </div>
+                        <div className="userPreviewBlock">
+                            <UserPreview
+                                name={item.display_name} 
+                                image={item.profile_image}
+                                location={item.location}
+                                reputation={displayRep(item.reputation)}
+                                bronzeBadge={item.badge_counts.bronze}
+                                silverBadge={item.badge_counts.silver}
+                                goldBadge={item.badge_counts.gold}
+                                website={item.website_url}
+                                about={item.about_me}
+                            />
                         </div>
                     </div>
                 ))}
