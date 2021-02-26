@@ -38,9 +38,7 @@ function TagsDescription(props) {
     } else {
         return (
             <>
-                {/* {data.map(item => ( */}
-                    <p className="tagDescription">{displayText(data[0].excerpt)}</p>
-                 {/* ))}                 */}
+                <p className="tagDescription">{displayText(data[0].excerpt)}</p>
             </>
         )
     }

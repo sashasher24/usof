@@ -12,12 +12,6 @@ header {
     width: 180px;
 }
 
-nav {
-    display: flex;
-    list-style-type: none;
-    margin-left: -40px;
-}
-
 .search {
     width: 400px;
 }
@@ -30,16 +24,6 @@ nav {
 #searchButton {
     width: 15%;
     margin-left: 50px;
-}
-
-nav li {
-    margin: 10px;
-    text-decoration: none;
-}
-
-nav a {
-    color: rgb(65, 64, 64);
-    text-decoration: none;
 }
 
 img {

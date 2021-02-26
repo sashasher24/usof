@@ -3,12 +3,24 @@ import {  useState,  useEffect } from 'react';
 
 import './questions.css';
 
-function Questions() {
+function Questions(props) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const url = 'https://api.stackexchange.com/2.2/questions?site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((';
+    const [sortingState, setSortingState] = useState({sortOrder: '', sortBy: ''});
+
+    useEffect(() => {
+        setSortingState(props);
+    }, [props]);
+
+    // console.log(sortingState.sortOrder)
+
+    // console.log(props.sortOrder);
+    // console.log(props.sortBy)
+
+    const url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -22,7 +34,7 @@ function Questions() {
                 setError(error);
             }
         )
-    }, []);
+    }, [sortingState]);
     
     console.log(data);
 
@@ -114,7 +126,7 @@ function Questions() {
                         </div>
                         <div className="tags">
                             {item.tags.map(tag => (
-                                <div className="tag">
+                                <div className="tag" key={tag}>
                                     {tag}
                                 </div>
                             ))}

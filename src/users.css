@@ -1,17 +1,17 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    /* width: 100%; */
 }
 
 .user {
     position: relative;
+    width: 30%;
 }
 
 .userBlock {
     display: flex;
-    width: 30%;
     margin: 10px;
+    height: 95px;
     border-bottom: 1px solid rgb(94, 94, 94);
     padding: 5px;
 }
@@ -19,6 +19,14 @@
 .profileImage {
     height: 70px;
     width: 70px;
+    position: relative;
+
+}
+
+.profileImage:hover {
+    z-index: 5;
+    height: 80px;
+    width: 80px;
 }
 
 .userInfo {
@@ -34,7 +42,7 @@
 }
 
 .userPreviewBlock {
-    display: none;
+    display: block;
     z-index: 2;
     position: absolute;
     top: 10px;
@@ -43,8 +51,29 @@
     overflow: hidden;
     width: 120%;
     background: rgb(161, 161, 161);
+    border-radius: 5px;
+} 
+
+.generalInfoPreview {
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+    margin-left: 80px;
 }
 
-.user:hover  .userPreviewBlock {
-    display: block;
+.previewImage {
+    height: 70px;
+    width: 70px;
+}
+
+.userInfoPreview {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 12px;
+    padding: 0px 5px 5px 5px;
+}
+
+.aboutPreview {
+    font-size: 12px;
 }

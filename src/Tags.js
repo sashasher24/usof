@@ -3,12 +3,18 @@ import TagsDescription from './TagsDescription';
 
 import './tags.css'
 
-function Tags() {
+function Tags(props) {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const url = 'https://api.stackexchange.com/2.2/tags?site=stackoverflow&filter=!9_bDDqt9p&key=wud)gxqaQ5vssDmltw6d1A((';
+    const [sortingState, setSortingState] = useState({sortOrder: '', sortBy: ''});
+
+    useEffect(() => {
+        setSortingState(props);
+    }, [props]);
+
+    const url = `https://api.stackexchange.com/2.2/tags?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDqt9p&key=wud)gxqaQ5vssDmltw6d1A((`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())
@@ -23,7 +29,7 @@ function Tags() {
                 setError(error);
             }
         )
-    }, []);
+    }, [sortingState]);
 
     console.log(data);
 

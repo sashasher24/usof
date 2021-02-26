@@ -27,4 +27,6 @@ main {
     height: max-content;
     background: rgb(0, 43, 58);
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
