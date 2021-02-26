@@ -1,10 +1,12 @@
 // import {  useState,  useEffect } from 'react';
 
+import './userPreview.css'
+
 function UserPreview(props) {
 
     const displayText = () => {
         let maxLength = 400;
-        let result = props.about.substring(0, maxLength) + '...';
+        let result = props.about.substring(0, maxLength).trim() + '...';
         return result;
     }
 

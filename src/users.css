@@ -33,14 +33,15 @@
     margin: 5px 0 ;
 }
 
-.userPreviewBlock{
+.userPreviewBlock {
     display: none;
     z-index: 2;
     position: absolute;
     top: 10px;
     left: 10px;
     height: max-content;
-    width: 35%;
+    overflow: hidden;
+    width: 120%;
     background: rgb(161, 161, 161);
 }
 
