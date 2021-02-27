@@ -20,7 +20,7 @@ function Questions(props) {
     // console.log(props.sortOrder);
     // console.log(props.sortBy)
 
-    const url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+    let url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
 
     useEffect(() => {
         fetch(url)
@@ -70,7 +70,7 @@ function Questions(props) {
 
         now = `${thisDay}.${thisMonth}.${thisYear}`;
 
-        if(isToday == now) {
+        if(isToday === now) {
             let nowTime = thisMinutes + thisHours * 60;
             let dateOfQuestion = minutes + hours * 60;
             let toDisplay = nowTime - dateOfQuestion;
@@ -80,17 +80,17 @@ function Questions(props) {
                 } else return `${toDisplay} min ago`
             }
             else if (toDisplay / 60 < 24){
-                if((toDisplay / 60).toFixed(0) == 1) {
+                if((toDisplay / 60).toFixed(0) === 1) {
                     return `${(toDisplay / 60).toFixed(0)} hour ago`;
                 }
                 else return `${(toDisplay / 60).toFixed(0)} hours ago`;
             } 
         }
         
-        if(month == thisMonth) {
-            if(thisDay - day == 2) {
+        if(month === thisMonth) {
+            if(thisDay - day === 2) {
                 return `2 days ago`
-            } else if(thisDay - day == 1) {
+            } else if(thisDay - day === 1) {
                 return `yesterday`;
             }
         }
@@ -123,7 +123,7 @@ function Questions(props) {
                     </div>
                     <div className="theQuestion">
                         <div className="questionTitle">
-                            <Link to={`/${item.question_id}`} >{item.title}</Link>
+                            <Link to={`/questions/${item.question_id}`} >{item.title}</Link>
                         </div>
                         <div className="tags">
                             {item.tags.map(tag => (

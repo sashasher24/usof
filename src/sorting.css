@@ -18,6 +18,10 @@
 .sortOrder {
     display: flex;
     justify-content: space-between;
+} 
+
+.sortOrder:hover {
+    cursor: pointer;
 }
 
 .sortOrder span {
@@ -25,3 +29,4 @@
     padding: 5px;
     width: 50%;
 }
+

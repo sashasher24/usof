@@ -40,7 +40,7 @@ function Main() {
                     <Route exact path="/" render={props => (<Questions {...props} sortOrder={order} sortBy={sortBy} />)}/>
                     <Route exact path="/users" render={props => (<Users {...props} sortOrder={order} sortBy={sortBy} />)}/>
                     <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy}/>)} />
-                    <Route path='/:questionId' component={QuestionPage} /> 
+                    <Route exact path='/questions/:questionId' component={QuestionPage} /> 
                 </div>
             </div>
         </main>

@@ -12,7 +12,7 @@ function QuestionPage() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const url = `https://api.stackexchange.com/2.2/questions/${questionId}?site=stackoverflow&filter=!IMtrxW)5mznbjA.Szm-Ccb1ppdMOnFW9TLEnzgsY1Z1xzCT&key=wud)gxqaQ5vssDmltw6d1A((`;
+    let url = `https://api.stackexchange.com/2.2/questions/${questionId}?site=stackoverflow&filter=!IMtrxW)5mznbjA.Szm-Ccb1ppdMOnFW9TLEnzgsY1Z1xzCT&key=wud)gxqaQ5vssDmltw6d1A((`;
 
     useEffect(() => {
         fetch(url)
@@ -58,14 +58,14 @@ function QuestionPage() {
 
         now = `${thisDay}.${thisMonth}.${thisYear}`;
 
-        if(isToday == now) {
+        if(isToday === now) {
             return `today`;
         }
         
-        if(month == thisMonth) {
-            if(thisDay - day == 2) {
+        if(month === thisMonth) {
+            if(thisDay - day === 2) {
                 return `2 days ago`
-            } else if(thisDay - day == 1) {
+            } else if(thisDay - day === 1) {
                 return `yesterday`;
             }
         }
@@ -89,11 +89,11 @@ function QuestionPage() {
 
                     <div className="questionBody">
                         <div className="voting">
-                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png"/>
+                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png" alt="vote up" />
                             <p>{data[0].score}</p>
-                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-down.png"/>
-                            <img className="sideButton" src="https://img.icons8.com/ios-filled/150/ffffff/favorites.png"/>  
-                            <img className="sideButton" src="https://img.icons8.com/fluent-systems-regular/96/ffffff/delivery-time.png"/>                     
+                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-down.png" alt="vote down" />
+                            <img className="sideButton" src="https://img.icons8.com/ios-filled/150/ffffff/favorites.png" alt="add to fav" />  
+                            <img className="sideButton" src="https://img.icons8.com/fluent-systems-regular/96/ffffff/delivery-time.png" alt="see history" />                     
 
                         </div>
                         <div className="questionText">
@@ -104,7 +104,7 @@ function QuestionPage() {
                                 ))}
 
                                 <div className="ownerOfQuestionInfo">
-                                    <img src={data[0].owner.profile_image} className="userOfQuestionPic" />
+                                    <img src={data[0].owner.profile_image} className="userOfQuestionPic" alt="user"/>
                                     <div className="genInfo">
                                         <span className="userOfQuestionName">{data[0].owner.display_name}</span>
                                         <span className="userOfQuestionRep">reputation: <DisplayReputation rep={data[0].owner.reputation} /></span>
@@ -117,7 +117,7 @@ function QuestionPage() {
 
                 <div className='answers'>
                     <h2 className="numOfAnswers">{data[0].answers.length} {data[0].answers.length > 1 ? 'Answers' : 'Answer'}</h2>
-                    {!data[0].answers ? '' : data[0].answers.map(answer => <Answer answer={answer} formatDate={formatDate} />)}
+                    {!data[0].answers ? '' : data[0].answers.map(answer => <Answer answer={answer} formatDate={formatDate} key={answer.answer_id} />)}
                 </div>
             </>
         )

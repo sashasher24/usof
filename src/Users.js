@@ -14,7 +14,7 @@ function Users(props) {
         setSortingState(props);
     }, [props]);
 
-    const url = `https://api.stackexchange.com/2.2/users?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDp)d5&key=wud)gxqaQ5vssDmltw6d1A((`;
+    let url = `https://api.stackexchange.com/2.2/users?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDp)d5&key=wud)gxqaQ5vssDmltw6d1A((`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())

@@ -15,3 +15,7 @@ nav a {
     color: rgb(221, 221, 221);
     text-decoration: none;
 }
+
+nav a:hover {
+    cursor: pointer;
+}
