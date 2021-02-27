@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import StartPage from './StartPage';
 import Users from './Users';
 import Tags from './Tags';
 import { Route } from 'react-router-dom'
+
 
 import './main.css'
 import SideBar from './SideBar';
@@ -11,6 +11,7 @@ import QuestionsSorting from './QuestionsSorting';
 import UsersSorting from './UsersSorting';
 import TagsSorting from './TagsSorting';
 import Questions from './Questions';
+import QuestionPage from './QuestionPage';
 
 function Main() {
 
@@ -27,7 +28,7 @@ function Main() {
     return(
         <main>
             <div id="sideBar">
-                <SideBar />
+                <SideBar setSortOrder={setSortOrder}/>
             </div>
             <div id="mainField">
                 <div className="sortingOptions">
@@ -39,6 +40,7 @@ function Main() {
                     <Route exact path="/" render={props => (<Questions {...props} sortOrder={order} sortBy={sortBy} />)}/>
                     <Route exact path="/users" render={props => (<Users {...props} sortOrder={order} sortBy={sortBy} />)}/>
                     <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy}/>)} />
+                    <Route path='/:questionId' component={QuestionPage} /> 
                 </div>
             </div>
         </main>

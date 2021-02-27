@@ -1,20 +1,11 @@
 import {  useState } from 'react';
 import UserPreview from './UserPreview';
 import UsersGeneralTags from './UsersGeneralTags';
+import DisplayReputation from './DisplayReputation';
 
 function UserBlock (props) {
 
     const [showPreview, setShowPreview] = useState(false);
-
-    const displayRep = rep => {
-        if(rep > 1000000) {
-            rep = Math.floor(rep/1000000) + Number(((rep % 1000000)*0.000001).toFixed(1));
-            return `${rep}m`;
-        } else if(rep > 1000) {
-            rep = Math.floor(rep/1000) + Number(((rep % 1000)*0.001).toFixed(1));
-            return `${rep}k`
-        } else return `${rep}`;
-    }
 
     return (
         <div key={props.item.user_id} className="userBlock">
@@ -23,7 +14,7 @@ function UserBlock (props) {
                 <span className="userName">{props.item.display_name}</span>
                 <span className="userLocation">{props.item.location}</span>
                 <span className="repInfo">
-                    <span className="reputation"> {displayRep(props.item.reputation)} </span>
+                    <span className="reputation"> <DisplayReputation rep={props.item.reputation} /> </span>
                     
                 </span>
                 <span className="tags"><UsersGeneralTags id={props.item.user_id} /></span>

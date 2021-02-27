@@ -1,4 +1,5 @@
 import {  useState,  useEffect } from 'react';
+import { Link } from 'react-router-dom';
 // import axios from 'axios';
 
 import './questions.css';
@@ -90,7 +91,7 @@ function Questions(props) {
             if(thisDay - day == 2) {
                 return `2 days ago`
             } else if(thisDay - day == 1) {
-                return `yeaterday`;
+                return `yesterday`;
             }
         }
         
@@ -122,7 +123,7 @@ function Questions(props) {
                     </div>
                     <div className="theQuestion">
                         <div className="questionTitle">
-                            {item.title}
+                            <Link to={`/${item.question_id}`} >{item.title}</Link>
                         </div>
                         <div className="tags">
                             {item.tags.map(tag => (

@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
+.theQuestionBlock {
+    color: white;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(94, 94, 94);
+    margin-bottom: 30px;
+}
+
+.headOfBlock {
+    border-bottom: 1px solid rgb(94, 94, 94);
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+}
+
+.dates {
+    margin-top: 15px;
+    color: rgb(165, 165, 165);
+}
+
+.when {
+    text-decoration: underline;
+    padding: 5px;
+}
+
+.questionBody {
+    display: flex;
+
+}
+
+.voting {
+    display: flex;
+    flex-direction: column;
+    width: 8%;
+    text-align: center;
+}
+
+.voteButton {
+    height: 60px;
+    width: 60%;
+    margin: 10px auto;
+}
+
+.sideButton {
+    height: 20px;
+    width: 30%;
+    margin: 5px auto;
+}
+
+.questionText {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 80%;
+}
+
+.textOfQuestion pre {
+    overflow: auto;
+    height: max-content;
+    max-height: 500px;
+    width: 100%;
+    background: rgb(231, 207, 180);
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+.tagsOfQuestion {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+    margin-top: 10%;
+}
+
+.tagOfQuestion {
+    width: max-content;
+    padding: 5px;
+    margin: 5px;
+    background: grey;
+    border-radius: 5px;
+    height: max-content;
+}
+
+.ownerOfQuestionInfo {
+    margin-left: auto;
+    display: flex;
+    height: 60px;
+    background: rgb(194, 194, 194);
+    border-radius: 10px;
+    color: rgb(0, 43, 58);
+    width: max-content;
+}
+
+.userOfQuestionPic {
+    height: 50px;
+    width: 50px;
+    margin: auto 0;
+    padding: 5px;
+}
+
+.genInfo {
+    font-size: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.numOfAnswers {
+    color: white;
+    text-align: left;
+    padding-left: 15px;
+}

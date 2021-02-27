@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+
+
+.answerBlock {
+    color: white;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(94, 94, 94);
+
+}
+
+.answerBody {
+    display: flex;
+}
+
+.voting {
+    display: flex;
+    flex-direction: column;
+    width: 8%;
+    text-align: center;
+}
+
+.voteButton {
+    height: 60px;
+    width: 60%;
+    margin: 5px auto;
+}
+
+.sideButton {
+    height: 20px;
+    width: 30%;
+    margin: 5px auto;
+}
+
+.answerText {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 80%;
+    text-align: left;
+}
+
+.textOfAnswer pre {
+    overflow-x: scroll;
+    background: rgb(231, 207, 180);
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+}
+
+.ownerOfAnswerInfo {
+    margin-top: 10%;
+    margin-left: auto;
+    height: max-content;
+    background: rgb(194, 194, 194);
+    border-radius: 10px;
+    color: rgb(0, 43, 58);
+    width: max-content;
+}
+
+.dateOfAnswer {
+    font-size: 10px;
+    padding-left: 5px;
+}
+
+.moreOwnerInfo {
+    display: flex;
+}
+
+.userOfAnswerPic {
+    height: 50px;
+    width: 50px;
+    margin: auto 0;
+    padding: 5px;
+}
+
+.genInfo {
+    font-size: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.accepted {
+    height: 40px;
+    width: 50%;
+    margin: 5px auto;
+}
+
+.notAccepted {
+    display: none;
+}
+
+.userOfAnswerName {
+    color: rgb(0, 86, 117);
+}
