@@ -2,6 +2,8 @@ import {  useState,  useEffect } from 'react';
 import TagsDescription from './TagsDescription';
 
 import './tags.css'
+import Questions from './Questions';
+import { Link } from 'react-router-dom';
 
 function Tags(props) {
     const [error, setError] = useState(null);
@@ -42,7 +44,7 @@ function Tags(props) {
             <div className='container'>
                 {data.map(item => (
                     <div className="tagBlock">
-                        <p className="tagName">{item.name}</p>
+                        <Link to="/"><p className="tagName" onClick={() => props.changeTag(item.name)}>{item.name}</p></Link>
                         <TagsDescription name={decodeURIComponent(item.name)} />
                         <p className="numOfQuestions">{item.count} questions</p>
                     </div>

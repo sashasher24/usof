@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import './questionPage.css'
 import DisplayReputation from './DisplayReputation';
 import Answer from './Answer';
+import Comments from './Comments';
 
 function QuestionPage() {
     let {questionId} = useParams();
@@ -97,7 +98,7 @@ function QuestionPage() {
 
                         </div>
                         <div className="questionText">
-                            <div className="textOfQuestion" dangerouslySetInnerHTML={{__html: (data[0].body || '')}}></div>
+                            <div className="textOfQuestion" dangerouslySetInnerHTML={{__html: (data[0].body || '')}} />
                             <div className="tagsOfQuestion">
                                 {data[0].tags.map(tag => (
                                     <div className="tagOfQuestion">{tag}</div>
@@ -111,13 +112,17 @@ function QuestionPage() {
                                     </div>
                                 </div>
                             </div>
+
+                            <div className='comments'>
+                                {data[0].comment_count > 0 ? <Comments comments={data[0].comments} formatDate={formatDate} /> : ''}
+                            </div>
                         </div>
                     </div>
                 </div>
-
+                                    
                 <div className='answers'>
-                    <h2 className="numOfAnswers">{data[0].answers.length} {data[0].answers.length > 1 ? 'Answers' : 'Answer'}</h2>
-                    {!data[0].answers ? '' : data[0].answers.map(answer => <Answer answer={answer} formatDate={formatDate} key={answer.answer_id} />)}
+                    <h2 className="numOfAnswers">{data[0].answers ? data[0].answers.length : 0} {data[0].answers && data[0].answers.length === 1 ? 'Answer' : 'Answers'}</h2>
+                    {!data[0].answers ? '' : data[0].answers.map(answer => <Answer answer={answer} formatDate={formatDate} id={answer.answer_id} />)}
                 </div>
             </>
         )

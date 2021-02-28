@@ -13,14 +13,16 @@ function Questions(props) {
 
     useEffect(() => {
         setSortingState(props);
+        props.changeTag(props.tag);
     }, [props]);
 
-    // console.log(sortingState.sortOrder)
+    console.log(props.tag);
+    let url;
 
-    // console.log(props.sortOrder);
-    // console.log(props.sortBy)
-
-    let url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+    if(props.tag) {
+        url = `https://api.stackexchange.com/2.2/search?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}tagged=${props.tag}&site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+    } 
+    else url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
 
     useEffect(() => {
         fetch(url)
@@ -35,7 +37,7 @@ function Questions(props) {
                 setError(error);
             }
         )
-    }, [sortingState]);
+    }, [sortingState, props.tag]);
     
     console.log(data);
 
@@ -127,7 +129,7 @@ function Questions(props) {
                         </div>
                         <div className="tags">
                             {item.tags.map(tag => (
-                                <div className="tag" key={tag}>
+                                <div className="tag" key={tag} onClick={() => props.changeTag(tag)}>
                                     {tag}
                                 </div>
                             ))}

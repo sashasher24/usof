@@ -1,0 +1,20 @@
+.comment {
+    background: white;
+    color: black;
+    border-bottom: 1px solid black;
+    padding: 5px;
+    font-size: 11px;
+}
+
+.comment a{
+    color: rgb(94, 94, 255);
+    text-decoration: underline;
+}
+
+.comment span {
+    margin: 0 5px;
+}
+
+.authorName {
+    color: rgb(94, 94, 255);
+}

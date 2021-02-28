@@ -1,13 +1,12 @@
 import DisplayReputation from "./DisplayReputation";
 
 import './answer.css'
+import Comments from "./Comments";
 
 function Answer (props) {
 
-
-
     return (
-        <div className="answerBlock">
+        <div className="answerBlock" key={props.id}>
             <div className="answerBody">
                 <div className="voting">
                     <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png" alt="vote up" />
@@ -29,6 +28,10 @@ function Answer (props) {
                                     <span className="userOfAnswerRep">reputation: <DisplayReputation rep={props.answer.owner.reputation} /></span>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className='comments'>
+                            {props.answer.comment_count > 0 ? <Comments comments={props.answer.comments} formatDate={props.formatDate} /> : ''}
                         </div>
                 </div>
             </div>

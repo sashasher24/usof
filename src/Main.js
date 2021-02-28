@@ -18,6 +18,12 @@ function Main() {
     const [order, setOrder] = useState('');
     const [sortBy, setSortBy] = useState();
 
+    const [tag, setTag] = useState();
+
+    const changeTag = (tag) => {
+        setTag(tag);
+    }
+
     const setSortOrder = (order, sortBy) => {
         setOrder(order);
         setSortBy(sortBy);
@@ -28,7 +34,7 @@ function Main() {
     return(
         <main>
             <div id="sideBar">
-                <SideBar setSortOrder={setSortOrder}/>
+                <SideBar setSortOrder={setSortOrder} changeTag={changeTag} />
             </div>
             <div id="mainField">
                 <div className="sortingOptions">
@@ -37,9 +43,9 @@ function Main() {
                     <Route path="/tags" render={(props) => (<TagsSorting {...props} setSortOrder={setSortOrder} />)} />
                 </div>
                 <div>
-                    <Route exact path="/" render={props => (<Questions {...props} sortOrder={order} sortBy={sortBy} />)}/>
+                    <Route exact path="/" render={props => (<Questions {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} tag={tag} />)}/>
                     <Route exact path="/users" render={props => (<Users {...props} sortOrder={order} sortBy={sortBy} />)}/>
-                    <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy}/>)} />
+                    <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} />)} />
                     <Route exact path='/questions/:questionId' component={QuestionPage} /> 
                 </div>
             </div>
