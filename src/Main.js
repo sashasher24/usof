@@ -12,6 +12,7 @@ import UsersSorting from './UsersSorting';
 import TagsSorting from './TagsSorting';
 import Questions from './Questions';
 import QuestionPage from './QuestionPage';
+import UserPage from './UserPage';
 
 function Main() {
 
@@ -47,6 +48,7 @@ function Main() {
                     <Route exact path="/users" render={props => (<Users {...props} sortOrder={order} sortBy={sortBy} />)}/>
                     <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} />)} />
                     <Route exact path='/questions/:questionId' component={QuestionPage} /> 
+                    <Route exact path='/users/:userId' component={UserPage} />
                 </div>
             </div>
         </main>

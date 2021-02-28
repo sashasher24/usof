@@ -21,6 +21,12 @@
 .questionTitle {
     grid-area: questionTitle;
     padding: 10px;
+    /* width: max-content;
+    overflow-wrap: ; */
+}
+
+.questionTitle:hover {
+    text-decoration: underline;
 }
 
 .theQuestion {
@@ -47,6 +53,10 @@
     margin: 5px;
     background: grey;
     border-radius: 5px;
+}
+
+.tag:hover {
+    cursor: pointer;
 }
 
 .ownerInfo {
