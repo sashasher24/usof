@@ -1,4 +1,4 @@
-import './sorting.css'
+import '../../sorting.css'
 
 function UsersSorting(props) {
     

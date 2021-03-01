@@ -51,6 +51,8 @@
     margin-top: 10px;
     margin-left: 20px;
     width: 80%;
+    overflow-wrap: break-word;
+
 }
 
 .textOfQuestion pre {
@@ -116,3 +118,5 @@
 .comments {
     margin-top: 15px;
 }
+
+@media screen and (max-width:)

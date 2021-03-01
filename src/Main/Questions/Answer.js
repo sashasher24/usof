@@ -1,4 +1,4 @@
-import DisplayReputation from "./DisplayReputation";
+import DisplayReputation from "../../DisplayReputation";
 
 import './answer.css'
 import Comments from "./Comments";

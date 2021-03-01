@@ -1,5 +1,5 @@
 import {  useState,  useEffect } from 'react';
-import FormatDate from './FormatDate';
+import FormatDate from '../../FormatDate';
 import { Link } from 'react-router-dom';
 
 function UserPosts(props) {

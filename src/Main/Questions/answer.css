@@ -36,6 +36,8 @@
     margin-left: 20px;
     width: 80%;
     text-align: left;
+    overflow-wrap: break-word;
+
 }
 
 .textOfAnswer pre {

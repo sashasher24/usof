@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import './questionPage.css'
-import DisplayReputation from './DisplayReputation';
+import DisplayReputation from '../../DisplayReputation';
 import Answer from './Answer';
 import Comments from './Comments';
 

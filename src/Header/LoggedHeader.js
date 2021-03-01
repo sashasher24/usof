@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import goblet from './images/goblet.png';
+import goblet from '../images/goblet.png';
 
 import './loggedHeader.css'
 

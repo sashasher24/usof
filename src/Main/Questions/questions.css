@@ -6,6 +6,12 @@
     border-bottom: 1px solid rgb(94, 94, 94);
 }
 
+.numbersInfoOfQuest {
+    display: flex;
+    height: max-content;
+    margin: auto 0;
+}
+
 .votes {
     grid-area: votes;
 }
@@ -95,4 +101,34 @@
 a {
     color: white;
     text-decoration: none;
+}
+
+@media screen and (max-width: 800px) {
+    .numbersInfoOfQuest {
+        flex-direction: column;
+    }
+
+    .tag {
+        height: max-content;
+    }
+
+    .questionTitle {
+        margin-top: 10px;
+        overflow-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .questionBlock {
+        font-size: 12px;
+        /* overflow-wrap: break-word; */
+    }
+
+    .sorting {
+        font-size: 12px;
+    }
+
+    .questionTitle {
+        margin-right: 10px;
+    }
 }

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import FormatDate from './FormatDate';
+import FormatDate from '../../FormatDate';
 
 import './userPage.css'
 import UserPosts from './UserPosts';

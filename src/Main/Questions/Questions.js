@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 
 import './questions.css';
-import FormatDate from './FormatDate';
+import FormatDate from '../../FormatDate';
 
 function Questions(props) {
     const [error, setError] = useState(null);
@@ -53,17 +53,19 @@ function Questions(props) {
             <>
                 {data.map(item => (
                     <div key={item.question_id} className="questionBlock">
-                        <div className="votes">
-                            {item.score}
-                            <p>votes</p>
-                        </div>
-                        <div className={item.answer_count > 0 ? item.is_answered ? `answers hasAcceptedAnswer` : `answers answered` : `answers`}>
-                            {item.answer_count}
-                            <p>answers</p>
-                        </div>
-                        <div className="views">
-                            {item.view_count}
-                            <p>views</p>
+                        <div className="numbersInfoOfQuest">
+                            <div className="votes">
+                                {item.score}
+                                <p>votes</p>
+                            </div>
+                            <div className={item.answer_count > 0 ? item.is_answered ? `answers hasAcceptedAnswer` : `answers answered` : `answers`}>
+                                {item.answer_count}
+                                <p>answers</p>
+                            </div>
+                            <div className="views">
+                                {item.view_count}
+                                <p>views</p>
+                            </div>
                         </div>
                         <div className="theQuestion">
                             <div className="questionTitle">

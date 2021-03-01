@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import Users from './Users';
-import Tags from './Tags';
+import Users from './Users/Users';
+import Tags from './Tags/Tags';
 import { Route } from 'react-router-dom'
 
 
@@ -10,9 +10,9 @@ import SideBar from './SideBar';
 import QuestionsSorting from './Questions/QuestionsSorting';
 import UsersSorting from './Users/UsersSorting';
 import TagsSorting from './Tags/TagsSorting';
-import Questions from './Questions';
-import QuestionPage from './QuestionPage';
-import UserPage from './UserPage';
+import Questions from './Questions/Questions';
+import QuestionPage from './Questions/QuestionPage';
+import UserPage from './Users/UserPage';
 
 function Main(props) {
 

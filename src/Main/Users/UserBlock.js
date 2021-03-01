@@ -1,7 +1,7 @@
 import {  useState } from 'react';
 import UserPreview from './UserPreview';
 import UsersGeneralTags from './UsersGeneralTags';
-import DisplayReputation from './DisplayReputation';
+import DisplayReputation from '../../DisplayReputation';
 import { Link } from 'react-router-dom';
 
 function UserBlock (props) {
