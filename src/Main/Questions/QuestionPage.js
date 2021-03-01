@@ -6,7 +6,7 @@ import DisplayReputation from './DisplayReputation';
 import Answer from './Answer';
 import Comments from './Comments';
 
-function QuestionPage() {
+function QuestionPage(props) {
     let {questionId} = useParams();
 
     const [error, setError] = useState(null);
@@ -74,12 +74,16 @@ function QuestionPage() {
         return formattedDate;
     }
 
+    console.log(props.token);
+
 
     if(error) {
         return <div>Error: {error.message}</div>;
     } else if(!isLoaded) {
         return <div>Loading...</div>;
     } else {
+        
+
         return (
             <>
                 <div className="theQuestionBlock">
@@ -90,9 +94,9 @@ function QuestionPage() {
 
                     <div className="questionBody">
                         <div className="voting">
-                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png" alt="vote up" />
+                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png" alt="vote up" onClick={() => props.token ? alert('your answer is accepted but isn`t counted as your reputation is too low') : alert("Log In first")} />
                             <p>{data[0].score}</p>
-                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-down.png" alt="vote down" />
+                            <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-down.png" alt="vote down" onClick={() => props.token ? alert('your answer is accepted but isn`t counted as your reputation is too low') : alert("Log In first")} />
                             <img className="sideButton" src="https://img.icons8.com/ios-filled/150/ffffff/favorites.png" alt="add to fav" />  
                             <img className="sideButton" src="https://img.icons8.com/fluent-systems-regular/96/ffffff/delivery-time.png" alt="see history" />                     
 
@@ -122,7 +126,7 @@ function QuestionPage() {
                                     
                 <div className='answers'>
                     <h2 className="numOfAnswers">{data[0].answers ? data[0].answers.length : 0} {data[0].answers && data[0].answers.length === 1 ? 'Answer' : 'Answers'}</h2>
-                    {!data[0].answers ? '' : data[0].answers.map(answer => <Answer answer={answer} formatDate={formatDate} id={answer.answer_id} />)}
+                    {!data[0].answers ? '' : data[0].answers.map(answer => <Answer answer={answer} formatDate={formatDate} id={answer.answer_id} token={props.token} />)}
                 </div>
             </>
         )

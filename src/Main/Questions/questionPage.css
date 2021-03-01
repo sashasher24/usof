@@ -63,6 +63,10 @@
     color: black;
 }
 
+.textOfQuestion img {
+    width: 100%;
+}
+
 .tagsOfQuestion {
     display: flex;
     flex-wrap: wrap;

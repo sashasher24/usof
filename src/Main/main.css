@@ -4,7 +4,11 @@ main {
     grid-template-columns: 20% 70%;
     /* grid-template-rows: 100%; */
     margin-top: 20px;
+    grid-gap: 40px;
     grid-template-areas: 'sideBar mainField';
+    height: max-content;
+    min-height: calc(100% - 25px);
+    margin-bottom: 20px
 }
 
 #sideBar {
@@ -13,7 +17,7 @@ main {
     /* margin: 20px; */
     /* margin-top: 20px; */
     background: rgb(0, 43, 58);
-    margin: 0 20px;
+    /* margin: 0 20px; */
     height: max-content;
     padding: 10px;
     border-left: 1px solid black;
@@ -22,7 +26,7 @@ main {
 #mainField {
     grid-area: mainField;
     width: 100%;
-    margin: 0 50px;
+    /* margin: 0 50px; */
     height: max-content;
     background: rgb(0, 43, 58);
     padding: 10px;

@@ -9,9 +9,9 @@ function Answer (props) {
         <div className="answerBlock" key={props.id}>
             <div className="answerBody">
                 <div className="voting">
-                    <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png" alt="vote up" />
+                    <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-up.png" alt="vote up" onClick={() => props.token ? alert('your answer is accepted but isn`t counted as your reputation is too low') : alert("Log In first")} />
                     <p>{props.answer.score}</p>
-                    <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-down.png" alt="vote down" />
+                    <img className="voteButton" src="https://img.icons8.com/ios-filled/100/ffffff/sort-down.png" alt="vote down" onClick={() => props.token ? alert('your answer is accepted but isn`t counted as your reputation is too low') : alert("Log In first")} />
                     <img className={props.answer.is_accepted ? 'accepted' : 'notAccepted'} src="https://img.icons8.com/fluent/144/26e07f/checkmark.png" alt="accepted" />
                     <img className="sideButton" src="https://img.icons8.com/fluent-systems-regular/96/ffffff/delivery-time.png" alt="see history" />                     
 

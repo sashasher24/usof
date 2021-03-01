@@ -1,7 +1,9 @@
+import './footer.css'
+
 function Footer() {
     return (
         <footer>
-            <h3>Footer</h3>
+            <p>osherstiuk @copyright 2021 </p>
         </footer>  
     )
 }

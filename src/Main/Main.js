@@ -7,19 +7,21 @@ import { Route } from 'react-router-dom'
 
 import './main.css'
 import SideBar from './SideBar';
-import QuestionsSorting from './QuestionsSorting';
-import UsersSorting from './UsersSorting';
-import TagsSorting from './TagsSorting';
+import QuestionsSorting from './Questions/QuestionsSorting';
+import UsersSorting from './Users/UsersSorting';
+import TagsSorting from './Tags/TagsSorting';
 import Questions from './Questions';
 import QuestionPage from './QuestionPage';
 import UserPage from './UserPage';
 
-function Main() {
+function Main(props) {
 
     const [order, setOrder] = useState('');
     const [sortBy, setSortBy] = useState();
 
     const [tag, setTag] = useState();
+
+    let token = props.token;
 
     const changeTag = (tag) => {
         setTag(tag);
@@ -47,7 +49,7 @@ function Main() {
                     <Route exact path="/" render={props => (<Questions {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} tag={tag} />)}/>
                     <Route exact path="/users" render={props => (<Users {...props} sortOrder={order} sortBy={sortBy} />)}/>
                     <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} />)} />
-                    <Route exact path='/questions/:questionId' component={QuestionPage} /> 
+                    <Route exact path='/questions/:questionId' render={props => (<QuestionPage {...props} token={token} />)} /> 
                     <Route exact path='/users/:userId' component={UserPage} />
                 </div>
             </div>
