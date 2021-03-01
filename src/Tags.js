@@ -2,7 +2,6 @@ import {  useState,  useEffect } from 'react';
 import TagsDescription from './TagsDescription';
 
 import './tags.css'
-import Questions from './Questions';
 import { Link } from 'react-router-dom';
 
 function Tags(props) {

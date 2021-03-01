@@ -10,7 +10,7 @@ function UserBlock (props) {
 
     return (
         <div key={props.item.user_id} className="userBlock">
-            <Link to={`users/${props.item.user_id}`}><img src={props.item.profile_image} className="profileImage" onMouseOver={() => setShowPreview(true)} onMouseOut={() => setShowPreview(false)} /> </Link>
+            <Link to={`users/${props.item.user_id}`}><img src={props.item.profile_image} alt="user" className="profileImage" onMouseOver={() => setShowPreview(true)} onMouseOut={() => setShowPreview(false)} /> </Link>
             <div className="userInfo">
                 <Link to={`users/${props.item.user_id}`}><span className="userName">{props.item.display_name}</span></Link>
                 <span className="userLocation">{props.item.location}</span>

@@ -1,4 +1,4 @@
-import { useParams, Route, NavLink } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import FormatDate from './FormatDate';
 

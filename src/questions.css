@@ -64,6 +64,14 @@
     padding: 10px;
 }
 
+.questionOwner {
+    color: rgb(129, 127, 250);
+}
+
+.questionOwner:hover {
+    text-decoration: underline;
+}
+
 .views, .answers, .votes {
     /* margin-top: 5px; */
     text-align: center;
