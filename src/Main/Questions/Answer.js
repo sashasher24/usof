@@ -1,4 +1,5 @@
 import DisplayReputation from "../../DisplayReputation";
+import { Link } from 'react-router-dom';
 
 import './answer.css'
 import Comments from "./Comments";
@@ -24,7 +25,7 @@ function Answer (props) {
                             <div className="moreOwnerInfo">
                                 <img src={props.answer.owner.profile_image} className="userOfAnswerPic" alt="user" />
                                 <div className="genInfo">
-                                    <span className="userOfAnswerName">{props.answer.owner.display_name}</span>
+                                    <Link to={`users/${props.answer.owner.user_id}`}><span className="userOfAnswerName">{props.answer.owner.display_name}</span> </Link>
                                     <span className="userOfAnswerRep">reputation: <DisplayReputation rep={props.answer.owner.reputation} /></span>
                                 </div>
                             </div>

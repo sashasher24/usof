@@ -13,6 +13,7 @@
 }
 
 .voting {
+    color: white;
     display: flex;
     flex-direction: column;
     width: 8%;
@@ -32,6 +33,7 @@
 }
 
 .answerText {
+    color: white;
     margin-top: 10px;
     margin-left: 20px;
     width: 80%;
@@ -45,6 +47,11 @@
     background: rgb(231, 207, 180);
     font-family: 'Source Code Pro', monospace;
     color: black;
+}
+
+.textOfAnswer a {
+    color: rgb(231, 207, 180);
+    text-decoration: underline;
 }
 
 .ownerOfAnswerInfo {

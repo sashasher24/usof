@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import './questionPage.css'
 import DisplayReputation from '../../DisplayReputation';
@@ -109,7 +110,7 @@ function QuestionPage(props) {
                                 <div className="ownerOfQuestionInfo">
                                     <img src={data[0].owner.profile_image} className="userOfQuestionPic" alt="user"/>
                                     <div className="genInfo">
-                                        <span className="userOfQuestionName">{data[0].owner.display_name}</span>
+                                        <Link to={`users/${data[0].owner.user_id}`}><span className="userOfQuestionName">{data[0].owner.display_name}</span></Link>
                                         <span className="userOfQuestionRep">reputation: <DisplayReputation rep={data[0].owner.reputation} /></span>
                                     </div>
                                 </div>
