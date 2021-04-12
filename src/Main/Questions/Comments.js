@@ -9,7 +9,7 @@ function Comments(props) {
                 <div className="comment" key={comment.comment_id}>
                     <span dangerouslySetInnerHTML={{__html: (comment.body || '')}} />
                     -
-                    <Link to={`users/${comment.owner.user_id}`}><span className="authorName">{comment.owner.display_name}</span></Link>
+                    <Link to={`/users/${comment.owner.user_id}`}><span className="authorName">{comment.owner.display_name}</span></Link>
                     <span className="commentDate">{props.formatDate(comment.creation_date)}</span>
                 </div>
             ))}

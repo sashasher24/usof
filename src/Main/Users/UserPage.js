@@ -68,7 +68,7 @@ function UserPage() {
                 </div>
 
                 <nav className="userPageNav">
-                    <li onClick={() => setType('posts')}> Posts </li >
+                    <li onClick={() => setType('posts')}> Posts </li>
                     <li onClick={() => setType('questions')}> Questions </li>
                     <li onClick={() => setType('answers')}> Answers </li>
                     <li onClick={() => setType('coments')}> Comments </li>
