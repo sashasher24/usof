@@ -1,4 +1,4 @@
-import {  useState,  useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import FormatDate from '../../FormatDate';
 import { Link } from 'react-router-dom';
 
@@ -12,36 +12,36 @@ function UserPosts(props) {
         let result = about.substring(0, maxLength).trim();
         return result;
     }
-    
+
     let url;
-    
-    if(props.type === 'posts') {
-        url = `https://api.stackexchange.com/2.2/users/${props.userId}/posts?site=stackoverflow&filter=!LH22N3W(ohE.oBUhc1Z_jP&key=wud)gxqaQ5vssDmltw6d1A((`;
-    } else if(props.type === 'questions') {
-        url = `https://api.stackexchange.com/2.2/users/${props.userId}/questions?site=stackoverflow&filter=!-MOiN_e9RRw)PrRV4)m9autDpK1W-y)25&key=wud)gxqaQ5vssDmltw6d1A((`;
-    } else if(props.type === 'answers') {
-        url = `https://api.stackexchange.com/2.2/users/${props.userId}/answers?site=stackoverflow&filter=!)Q29mwsOXXJGPIa)BWJ5Yi3H&key=wud)gxqaQ5vssDmltw6d1A((`;
+
+    if (props.type === 'posts') {
+        url = `https://api.stackexchange.com/2.2/users/${props.userId}/posts?site=stackoverflow&filter=!LH22N3W(ohE.oBUhc1Z_jP&key=${process.env.REACT_APP_API_KEY}`;
+    } else if (props.type === 'questions') {
+        url = `https://api.stackexchange.com/2.2/users/${props.userId}/questions?site=stackoverflow&filter=!-MOiN_e9RRw)PrRV4)m9autDpK1W-y)25&key=${process.env.REACT_APP_API_KEY}`;
+    } else if (props.type === 'answers') {
+        url = `https://api.stackexchange.com/2.2/users/${props.userId}/answers?site=stackoverflow&filter=!)Q29mwsOXXJGPIa)BWJ5Yi3H&key=${process.env.REACT_APP_API_KEY}`;
     } else {
-        url = `https://api.stackexchange.com/2.2/users/${props.userId}/comments?site=stackoverflow&filter=!SWJ_aFhOX4jJ4Lt8gw&key=wud)gxqaQ5vssDmltw6d1A((`;
+        url = `https://api.stackexchange.com/2.2/users/${props.userId}/comments?site=stackoverflow&filter=!SWJ_aFhOX4jJ4Lt8gw&key=${process.env.REACT_APP_API_KEY}`;
     }
 
     useEffect(() => {
         fetch(url)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                setData(result.items);
-                setIsLoaded(true);
-            },
-            (error) => {
-                setIsLoaded(true);
-                setError(error);
-            }
-        )
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setData(result.items);
+                    setIsLoaded(true);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
     }, [props.type]);
 
     let i = 0;
-    
+
     // console.log(data);
 
     console.log(data);
@@ -68,7 +68,7 @@ function UserPosts(props) {
                 ))}
             </>
         )
-    // }
+            // }
     }
 }
 

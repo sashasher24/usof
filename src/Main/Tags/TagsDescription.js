@@ -7,7 +7,7 @@ function TagsDescription(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const url = `https://api.stackexchange.com/2.2/tags/${encodeURIComponent(props.name)}/wikis?site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+    const url = `https://api.stackexchange.com/2.2/tags/${encodeURIComponent(props.name)}/wikis?site=stackoverflow&key=${process.env.REACT_APP_API_KEY}`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())

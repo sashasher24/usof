@@ -1,4 +1,4 @@
-import {  useState,  useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import './users.css'
 import UserBlock from './UserBlock';
@@ -8,13 +8,14 @@ function Users(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    const [sortingState, setSortingState] = useState({sortOrder: '', sortBy: ''});
+    const [sortingState, setSortingState] = useState({ sortOrder: '', sortBy: '' });
 
     useEffect(() => {
         setSortingState(props);
     }, [props]);
 
-    let url = `https://api.stackexchange.com/2.2/users?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDp)d5&key=wud)gxqaQ5vssDmltw6d1A((`;
+    let url = `https://api.stackexchange.com/2.2/users?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDp)d5&key=${process.env.REACT_APP_API_KEY}`;
+    
     useEffect(() => {
         fetch(url)
         .then(res => res.json())

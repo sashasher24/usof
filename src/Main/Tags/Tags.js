@@ -15,7 +15,7 @@ function Tags(props) {
         setSortingState(props);
     }, [props]);
 
-    const url = `https://api.stackexchange.com/2.2/tags?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDqt9p&key=wud)gxqaQ5vssDmltw6d1A((`;
+    const url = `https://api.stackexchange.com/2.2/tags?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&filter=!9_bDDqt9p&key=${process.env.REACT_APP_API_KEY}`;
     useEffect(() => {
         fetch(url)
         .then(res => res.json())

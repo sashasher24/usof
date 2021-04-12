@@ -4,7 +4,7 @@ import './header.css';
 import LoggedHeader from './LoggedHeader';
 import axios from 'axios';
 
-function Header (props) {
+function Header(props) {
 
     const [isNotLogged, setIsNotLogged] = useState(true);
     const [token, setToken] = useState();
@@ -14,40 +14,42 @@ function Header (props) {
 
     const auth = data => {
         window.SE.authenticate({
-            success: (data) => { 
-                tokens = data; 
+            success: (data) => {
+                tokens = data;
                 console.log(tokens);
                 setToken(tokens.accessToken);
                 props.getUsersToken(tokens.accessToken);
                 setLoggedIn(true);
             }, // Приложение авторизовало пользователя
-            error: (data) => {  
-                alert('Я не получил доступ :('); 
+            error: (data) => {
+                alert('Я не получил доступ :(');
                 // isLogged = false;
             }, // Приложение не авторизовало пользователя
         });
     }
 
-    useEffect(() => {
-        window.SE.init({
-            clientId: 19680, // Здесь мы ставим выданный нам clientId
-            key: 'wud)gxqaQ5vssDmltw6d1A((', // А здесь соответственно key
-            channelUrl: 'https://sashasher24.github.io/usof', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
-            complete: () => {
-                console.log('complete');
-                setIsNotLogged(false);
-            }// Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
-        });    
-    }, [])
+    // useEffect(() => {
+    //     window.SE.init({
+    //         clientId: 19680, // Здесь мы ставим выданный нам clientId
+    //         key: 'wud)gxqaQ5vssDmltw6d1A((', // А здесь соответственно key
+    //         channelUrl: 'https://sashasher24.github.io/usof', // Особое внимание стоит уделить этому полю. Здесь нужно указать домен, на котором хостится и крутится приложение
+    //         complete: () => {
+    //             console.log('complete');
+    //             setIsNotLogged(false);
+    //         }// Здесь мы указываем некоторую функцию, которая будет выполнена в случае успеха
+    //     });    
+    // }, [])
+
+    // console.log(process.env.REACT_APP_API_KEY);
 
     const logOut = () => {
-        axios.get(`https://api.stackexchange.com/2.2/apps/${token}/de-authenticate?key=wud)gxqaQ5vssDmltw6d1A((`)
-        .then(() => {
-            setLoggedIn(false);
-        })
+        axios.get(`https://api.stackexchange.com/2.2/apps/${token}/de-authenticate?key=${process.env.REACT_APP_API_KEY}`)
+            .then(() => {
+                setLoggedIn(false);
+            })
         console.log('log out');
     }
-  
+
     console.log("me1");
 
     return ( 
@@ -67,4 +69,4 @@ function Header (props) {
     );
 }
 
-export default Header;
+    export default Header;

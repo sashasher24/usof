@@ -13,7 +13,7 @@ function QuestionPage(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    let url = `https://api.stackexchange.com/2.2/questions/${questionId}?site=stackoverflow&filter=!IMtrxW)5mznbjA.Szm-Ccb1ppdMOnFW9TLEnzgsY1Z1xzCT&key=wud)gxqaQ5vssDmltw6d1A((`;
+    let url = `https://api.stackexchange.com/2.2/questions/${questionId}?site=stackoverflow&filter=!IMtrxW)5mznbjA.Szm-Ccb1ppdMOnFW9TLEnzgsY1Z1xzCT&key=${process.env.REACT_APP_API_KEY}`;
 
     useEffect(() => {
         fetch(url)
@@ -82,8 +82,6 @@ function QuestionPage(props) {
     } else if(!isLoaded) {
         return <div>Loading...</div>;
     } else {
-        
-
         return (
             <>
                 <div className="theQuestionBlock">

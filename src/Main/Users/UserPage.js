@@ -8,7 +8,7 @@ import UserPosts from './UserPosts';
 
 
 function UserPage() {
-    let {userId} = useParams();
+    let { userId } = useParams();
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -16,23 +16,23 @@ function UserPage() {
 
     const [type, setType] = useState('posts');
 
-    let url = `https://api.stackexchange.com/2.2/users/${userId}?site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((&filter=!9_bDDp)d5`;
+    let url = `https://api.stackexchange.com/2.2/users/${userId}?site=stackoverflow&key=${process.env.REACT_APP_API_KEY}&filter=!9_bDDp)d5`;
 
     useEffect(() => {
         fetch(url)
-        .then(res => res.json())
-        .then(
-            (result) => {
-                setData(result.items);
-                setIsLoaded(true);
-            },
-            (error) => {
-                setIsLoaded(true);
-                setError(error);
-            }
-        )
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setData(result.items);
+                    setIsLoaded(true);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
     }, []);
-    
+
     console.log(data);
 
 

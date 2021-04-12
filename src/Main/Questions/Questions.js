@@ -21,9 +21,9 @@ function Questions(props) {
     let url;
 
     if(props.tag) {
-        url = `https://api.stackexchange.com/2.2/search?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}tagged=${props.tag}&site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+        url = `https://api.stackexchange.com/2.2/search?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}tagged=${props.tag}&site=stackoverflow&key=${process.env.REACT_APP_API_KEY}`;
     } 
-    else url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=wud)gxqaQ5vssDmltw6d1A((`;
+    else url = `https://api.stackexchange.com/2.2/questions?${sortingState.sortOrder ? `order=${sortingState.sortOrder}&sort=${sortingState.sortBy}&` : ''}site=stackoverflow&key=${process.env.REACT_APP_API_KEY}`;
 
     useEffect(() => {
         fetch(url)

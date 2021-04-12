@@ -9,7 +9,7 @@ function LoggedHeader(props) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState({});
 
-    let url = `https://api.stackexchange.com/2.2/me?site=stackoverflow&filter=!--1nZuvlShP1&key=wud)gxqaQ5vssDmltw6d1A((&access_token=${props.token}`;
+    let url = `https://api.stackexchange.com/2.2/me?site=stackoverflow&filter=!--1nZuvlShP1&key=${process.env.REACT_APP_API_KEY}&access_token=${props.token}`;
     
     useEffect(() => {
         fetch(url)
