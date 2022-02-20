@@ -1,11 +1,12 @@
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import {Route, useParams} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import './questionPage.css'
 import DisplayReputation from '../../DisplayReputation';
 import Answer from './Answer';
 import Comments from './Comments';
+import Questions from "./Questions";
 
 function QuestionPage(props) {
     let {questionId} = useParams();
@@ -104,7 +105,9 @@ function QuestionPage(props) {
                             <div className="textOfQuestion" dangerouslySetInnerHTML={{__html: (data[0].body || '')}} />
                             <div className="tagsOfQuestion">
                                 {data[0].tags.map(tag => (
-                                    <div className="tagOfQuestion">{tag}</div>
+                                    <Link to="/">
+                                        <div className="tagOfQuestion" onClick={() => props.changeTag(tag)}>{tag}</div>
+                                    </Link>
                                 ))}
 
                                 <div className="ownerOfQuestionInfo">

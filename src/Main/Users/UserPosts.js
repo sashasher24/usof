@@ -42,9 +42,7 @@ function UserPosts(props) {
 
     let i = 0;
 
-    // console.log(data);
-
-    console.log(data);
+    console.log(data[0]);
 
     if(error) {
         return <div>Error: {error.message}</div>;
@@ -56,12 +54,19 @@ function UserPosts(props) {
                 {data.map(item => (
                     <div className="userPagePost" key={i++}>
                         {props.type === 'posts' || props.type === 'questions' ? 
-                        item.question_id ? 
-                            <Link to={`/questions/${item.question_id}`}><p className="userPost">{item.title}</p></Link> : 
-                            <p className="userPost">{item.title}</p> : item.body ? 
-                            item.question_id ? 
-                            <Link to={`/questions/${item.question_id}`}><p className="userPost" dangerouslySetInnerHTML={{__html: (displayText(item.body) || '')}} /></Link> : 
-                            <p className="userPost" dangerouslySetInnerHTML={{__html: (displayText(item.body) || '')}} /> 
+                            item.question_id ?
+                                <Link to={`/questions/${item.question_id}`}>
+                                    <p className="userPost">{item.title}</p>
+                                </Link>
+                                    :
+                                <p className="userPost">{item.title}</p>
+                            : item.body ?
+                                item.question_id ?
+                                <Link to={`/questions/${item.question_id}`}>
+                                    <p className="userPost" dangerouslySetInnerHTML={{__html: (displayText(item.body) || '')}} />
+                                </Link>
+                                    :
+                                <p className="userPost" dangerouslySetInnerHTML={{__html: (displayText(item.body) || '')}} />
                             : ''}
                         <p className="userPostDate"><FormatDate date={item.creation_date} /></p>
                     </div>

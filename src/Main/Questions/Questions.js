@@ -12,6 +12,8 @@ function Questions(props) {
 
     const [sortingState, setSortingState] = useState({sortOrder: '', sortBy: ''});
 
+    console.log('change tag is ' + props.changeTag)
+
     useEffect(() => {
         setSortingState(props);
         props.changeTag(props.tag);
@@ -80,7 +82,9 @@ function Questions(props) {
 
                                 <div className="ownerInfo">
                                     <span className="questionDate"> asked <FormatDate date={item.creation_date} /> by </span>
-                                    <Link to={`/users/${item.owner.user_id}`}><span className="questionOwner"> {item.owner.display_name} </span></Link>
+                                    <Link to={`/users/${item.owner.user_id}`}>
+                                        <span className="questionOwner"> {item.owner.display_name} </span>
+                                    </Link>
                                     <span className="questionOwnerRep"> {item.owner.reputation} </span>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Users from './Users/Users';
 import Tags from './Tags/Tags';
-import { Route } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 
 
 import './main.css'
@@ -20,12 +20,14 @@ function Main(props) {
     const [sortBy, setSortBy] = useState();
 
     const [tag, setTag] = useState();
-
+    console.log('key:' + process.env.REACT_APP_API_KEY);
     let token = props.token;
 
-    const changeTag = (tag) => {
+    function changeTag (tag){
         setTag(tag);
     }
+
+    console.log('change tag is ' + changeTag)
 
     const setSortOrder = (order, sortBy) => {
         setOrder(order);
@@ -41,16 +43,20 @@ function Main(props) {
             </div>
             <div id="mainField">
                 <div className="sortingOptions">
-                    <Route exact path="/" render={(props) => (<QuestionsSorting {...props} setSortOrder={setSortOrder} />)}/>
-                    <Route exact path="/users" render={(props) => (<UsersSorting {...props} setSortOrder={setSortOrder} />)}/>
-                    <Route path="/tags" render={(props) => (<TagsSorting {...props} setSortOrder={setSortOrder} />)} />
+                    <Routes>
+                        <Route exact path="/" element={<QuestionsSorting setSortOrder={setSortOrder} />}/>
+                        <Route exact path="/users" element={<UsersSorting setSortOrder={setSortOrder} />}/>
+                        <Route path="/tags" render={<TagsSorting setSortOrder={setSortOrder} />}/>
+                    </Routes>
                 </div>
                 <div>
-                    <Route exact path="/" render={props => (<Questions {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} tag={tag} />)}/>
-                    <Route exact path="/users" render={props => (<Users {...props} sortOrder={order} sortBy={sortBy} />)}/>
-                    <Route path="/tags" render={props => (<Tags {...props} sortOrder={order} sortBy={sortBy} changeTag={changeTag} />)} />
-                    <Route exact path='/questions/:questionId' render={props => (<QuestionPage {...props} token={token} />)} /> 
-                    <Route exact path='/users/:userId' component={UserPage} />
+                    <Routes>
+                        <Route exact path="/" element={<Questions sortOrder={order} sortBy={sortBy} changeTag={changeTag} tag={tag}/>}/>
+                        <Route exact path="/users" element={<Users sortOrder={order} sortBy={sortBy} />}/>
+                        <Route path="/tags" element={<Tags sortOrder={order} sortBy={sortBy} changeTag={changeTag} />} />
+                        <Route path='/questions/:questionId' element={<QuestionPage token={token} changeTag={changeTag}/>} />
+                        <Route path='/users/:userId' element={<UserPage />}/>
+                    </Routes>
                 </div>
             </div>
         </main>

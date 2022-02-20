@@ -1,8 +1,6 @@
 # My StackOverflow Front-End clone
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## You can check the deployed version following this link - [https://sashasher24.github.io/](https://sashasher24.github.io/)
 
 ## Available Scripts
 
