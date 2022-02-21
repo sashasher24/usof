@@ -44,14 +44,14 @@ function Main(props) {
             <div id="mainField">
                 <div className="sortingOptions">
                     <Routes>
-                        <Route exact path="/" element={<QuestionsSorting setSortOrder={setSortOrder} />}/>
+                        <Route exact path="/questions" element={<QuestionsSorting setSortOrder={setSortOrder} />}/>
                         <Route exact path="/users" element={<UsersSorting setSortOrder={setSortOrder} />}/>
                         <Route path="/tags" render={<TagsSorting setSortOrder={setSortOrder} />}/>
                     </Routes>
                 </div>
                 <div>
                     <Routes>
-                        <Route exact path="/" element={<Questions sortOrder={order} sortBy={sortBy} changeTag={changeTag} tag={tag}/>}/>
+                        <Route exact path="/questions" element={<Questions sortOrder={order} sortBy={sortBy} changeTag={changeTag} tag={tag}/>}/>
                         <Route exact path="/users" element={<Users sortOrder={order} sortBy={sortBy} />}/>
                         <Route path="/tags" element={<Tags sortOrder={order} sortBy={sortBy} changeTag={changeTag} />} />
                         <Route path='/questions/:questionId' element={<QuestionPage token={token} changeTag={changeTag}/>} />
