@@ -23,7 +23,7 @@ jobs:
     - name: Start application
       run: |
         echo "Starting application..."
-        npm start
+        npm start &
         echo "Application started."
 
   tests:
