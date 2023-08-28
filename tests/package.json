@@ -9,12 +9,5 @@
     "tests:run:ci": "npx cypress run --env grepTags=@ci+@smoke --config-file='base.config.js'"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@cypress/grep": "^3.1.5",
-    "cypress": "^12.17.4"
-  },
-  "dependencies": {
-    "dotenv": "^16.3.1"
-  }
+  "license": "ISC"
 }
