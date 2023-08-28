@@ -31,12 +31,10 @@ jobs:
         with:
           script: |
             ACCESS_TOKEN="${{ secrets.WORKFLOW_TOKEN }}"
-      
             REPO_OWNER="sashasher24"
             REPO_NAME="usof_tests"
             EVENT_TYPE="run_tests"
-      
-            # Create a dispatch event using the GitHub API
+
             curl -X POST \
               -H "Authorization: Bearer $ACCESS_TOKEN" \
               -H "Accept: application/vnd.github.everest-preview+json" \
