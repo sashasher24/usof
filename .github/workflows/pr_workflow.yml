@@ -1,0 +1,63 @@
+name: Application PR Workflow
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+    setup_and_trigger_tests:
+      runs-on: ubuntu-latest
+
+      steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up environment
+        run: |
+          echo "$ENV_FILE" > .env
+
+      - name: Install application dependencies
+        run: npm install
+
+      - name: Start application
+        run: |
+          echo "Starting application..."
+          npm start &
+          echo "Application started."
+          
+      - name: Trigger Tests
+        uses: actions/github-script@v5
+        with:
+          script: |
+            ACCESS_TOKEN="${{ secrets.WORKFLOW_TOKEN }}"
+            REPO_OWNER="sashasher24"
+            REPO_NAME="usof_tests"
+            EVENT_TYPE="run_tests"
+
+            curl -X POST \
+              -H "Authorization: Bearer $ACCESS_TOKEN" \
+              -H "Accept: application/vnd.github.everest-preview+json" \
+              "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/dispatches" \
+              -d "{\"event_type\": \"$EVENT_TYPE\"}"
+
+      - name: Wait for Tests to Complete
+        run: |
+          while true; do
+            job_status=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+              "https://api.github.com/repos/sashasher24/usof_tests/actions/jobs?event=workflow_run" \
+              | jq '.workflow_runs[] | select(.name == "tests_workflow") | .status')
+        
+            if [[ $job_status == '"completed"' ]]; then
+              echo "Tests completed."
+              break
+            else
+              echo "Waiting for tests to complete..."
+              sleep 10  # Adjust the sleep interval as needed
+            fi
+          done
+  
+      - name: Cleanup
+        run: |
+          kill $(ps aux | grep 'npm start' | awk '{print $2}')
+          rm -rf node_modules
