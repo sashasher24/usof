@@ -26,8 +26,28 @@ jobs:
         npm start &
         echo "Application started."
 
+    - name: Wait for Tests to Complete
+      run: |
+        while true; do
+          job_status=$(curl -s -H "Authorization: Bearer $GITHUB_TOKEN" \
+            "https://api.github.com/repos/sashasher24/usof_tests/actions/jobs?event=workflow_run" \
+            | jq '.workflow_runs[] | select(.name == "tests_workflow") | .status')
+        
+          if [[ $job_status == '"completed"' ]]; then
+            echo "Tests completed."
+            break
+          else
+            echo "Waiting for tests to complete..."
+            sleep 10  # Adjust the sleep interval as needed
+          fi
+        done
+  
+    - name: Cleanup
+      run: |
+        kill $(ps aux | grep 'npm start' | awk '{print $2}')
+        rm -rf node_modules
+
   trigger_tests:
-    needs: setup
     runs-on: ubuntu-latest
 
     steps:
