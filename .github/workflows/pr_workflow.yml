@@ -31,11 +31,12 @@ jobs:
         with:
           script: |
             const { Octokit } = require('@octokit/rest');  // Import Octokit
+            const fetch = require('node-fetch');  // Import the fetch implementation
             const token = process.env.GITHUB_TOKEN;
             const owner = 'sashasher24';
             const repo = 'usof_tests';
               
-            const octokit = new Octokit({ auth: token });
+            const octokit = new Octokit({ auth: token, request: { fetch } });  // Provide fetch implementation
             await octokit.rest.repos.createDispatchEvent({
               owner,
               repo,
