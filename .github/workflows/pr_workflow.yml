@@ -1,0 +1,36 @@
+name: Application PR Workflow
+
+on:
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up environment
+      run: |
+        echo "$ENV_FILE" > .env
+
+    - name: Install application dependencies
+      run: npm install
+
+    - name: Start application
+      run: |
+        npm start
+
+  tests:
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout tests repository
+      uses: actions/checkout@v2
+      with:
+        repository: sashasher24/usof_tests
+        ref: main  # Or the branch you want to use
